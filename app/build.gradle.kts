@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("com.google.dagger.hilt.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -79,4 +81,22 @@ dependencies {
 
     // Zxing
     implementation("com.google.zxing:core:3.4.1")
+
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+
+    // Dagger Hilt
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+    implementation("com.google.dagger:hilt-android:2.48.1")
+    implementation("androidx.hilt:hilt-navigation:1.2.0")
+    kapt("com.google.dagger:hilt-android-compiler:2.48.1")
+
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.14")
+    implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
+
+}
+
+kapt {
+    correctErrorTypes = true
 }
